@@ -1,5 +1,6 @@
 package pl.qceyco.dao;
 
+import org.apache.commons.lang3.StringUtils;
 import pl.qceyco.model.Admin;
 import pl.qceyco.utils.BCrypt;
 import pl.qceyco.utils.DbUtil;
@@ -138,6 +139,9 @@ public class AdminDao {
             if (admin.getEmail().equals(email)) {
                 adminCheck = admin;
             }
+        }
+        if (StringUtils.isBlank(adminCheck.getEmail())) {
+            return null;
         }
         return adminCheck;
     }

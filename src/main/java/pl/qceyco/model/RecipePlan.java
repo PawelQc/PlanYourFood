@@ -39,6 +39,12 @@ public class RecipePlan {
         this.plan = plan;
     }
 
+    public RecipePlan(DayName dayName, String mealName, Recipe recipe) {
+        this.dayName = dayName;
+        this.mealName = mealName;
+        this.recipe = recipe;
+    }
+
 
     public int getId() {
         return id;
