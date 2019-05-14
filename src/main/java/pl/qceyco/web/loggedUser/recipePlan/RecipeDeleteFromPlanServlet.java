@@ -15,7 +15,6 @@ public class RecipeDeleteFromPlanServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String recipePlanId = request.getParameter("recipePlanId");
-        System.out.println(recipePlanId);
         RecipePlanDao recipePlanDao = new RecipePlanDao();
         RecipePlan recipePlan = recipePlanDao.getRecipePlanById(Integer.parseInt(recipePlanId));
         recipePlanDao.deleteRecipePlan(recipePlan);

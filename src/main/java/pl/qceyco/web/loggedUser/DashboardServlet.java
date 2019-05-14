@@ -44,7 +44,6 @@ public class DashboardServlet extends HttpServlet {
         RecipePlanDao recipePlanDao = new RecipePlanDao();
         RecipePlan recipePlan = recipePlanDao.getRecentRecipePlanByAdminId(loggedAdmin.getId());
         request.setAttribute("recipePlan", recipePlan);
-        System.out.println(recipePlan);
         if (recipePlan.getId() == 0) {
             request.setAttribute("noRecipePlan", "BRAK");
         }
