@@ -24,7 +24,6 @@
                                                                         class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
                     </div>
                 </div>
-
                 <div class="schedules-content">
                     <div class="schedules-content-header">
                         <div class="form-group row">
@@ -47,9 +46,7 @@
                         </div>
                     </div>
                     <c:forEach items="${planDetails}" var="recipePlan">
-
-                    <table class="table">
-
+                        <table class="table">
                             <thead>
                             <tr class="d-flex">
                                 <th class="col-2">${recipePlan.dayName.name}</th>
@@ -63,20 +60,18 @@
                                 <td class="col-2">${recipePlan.mealName}</td>
                                 <td class="col-7">${recipePlan.recipe.name}</td>
                                 <td class="col-1 center">
-                                    <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                    <a href="/app/recipe/delete-from-plan?recipePlanId=${recipePlan.id}"
+                                       class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
                                 </td>
                                 <td class="col-2 center">
-                                    <a href="app-details-schedules.html" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                                    <a href="/app/recipe/details?recipeId=${recipePlan.recipe.id}"
+                                       class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                                 </td>
                             </tr>
                             </tbody>
-
                         </table>
                     </c:forEach>
-
                 </div>
-
-
             </div>
         </div>
     </div>

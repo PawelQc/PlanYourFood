@@ -18,11 +18,12 @@
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
-                <h4>${successfulDeletion}</h4>
+                <h4>${successfulDeletion}</h4> <h4>${cannotDelete}</h4>
                 <div class="row border-bottom border-3 p-1 m-1">
                     <div class="col noPadding"><h3 class="color-header text-uppercase">Lista Przepisów</h3></div>
                     <div class="col noPadding d-flex justify-content-end mb-2"><a href="/app/recipe/add"
-                                                                                  class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj przepis</a></div>
+                                                                                  class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj
+                        przepis</a></div>
                 </div>
                 <table class="table border-bottom schedules-content">
                     <thead>
@@ -44,7 +45,7 @@
                                    class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
                                 <a href="/app/recipe/details?recipeId=${recipe.id}"
                                    class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
-                                <a href="/app/edit/recipe?recipeId=${recipe.id}"
+                                <a href="/app/recipe/edit?recipeId=${recipe.id}"
                                    class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>
                             </td>
                         </tr>
@@ -57,7 +58,6 @@
 </section>
 
 <%@ include file="/fragments-after-logging/jsCode.jsp" %>
-
 
 </body>
 </html>

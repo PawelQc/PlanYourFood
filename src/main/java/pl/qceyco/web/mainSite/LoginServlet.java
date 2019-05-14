@@ -1,4 +1,4 @@
-package pl.qceyco.web.unloggedUser;
+package pl.qceyco.web.mainSite;
 
 import org.apache.commons.lang3.StringUtils;
 import pl.qceyco.dao.AdminDao;
@@ -26,6 +26,11 @@ public class LoginServlet extends HttpServlet {
         Admin admin = dao.isAdmininDB(email);
         if (admin == null) {
             request.setAttribute("errorInvalidLogging", "Podany email nie istnieje w bazie danych! Zarejestruj się.");
+            doGet(request, response);
+            return;
+        }
+        if (admin.isEnabledLogging() == false) {
+            request.setAttribute("errorBlockedUser", "Podany użytkownik został zablokowany przez administratora. Logowanie nie jest możliwe!");
             doGet(request, response);
             return;
         }

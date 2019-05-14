@@ -12,7 +12,6 @@
 <body>
 <%@ include file="/fragments-after-logging/header.jsp" %>
 
-
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
         <%@ include file="/fragments-after-logging/sidePanel.jsp" %>
@@ -20,7 +19,7 @@
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
-                <h4>${successfulDeletion}</h4>
+                <h4>${successfulDeletion}</h4> <h4>${cannotDelete}</h4>
                 <div class="row border-bottom border-3 p-1 m-1">
                     <div class="col noPadding">
                         <h3 class="color-header text-uppercase">LISTA PLANÓW</h3>
@@ -47,9 +46,12 @@
                                 <td class="col-2">${plan.name}</td>
                                 <td class="col-7">${plan.description}</td>
                                 <td class="col-2 d-flex align-items-center justify-content-center flex-wrap">
-                                    <a href="/app/plan/delete?planId=${plan.id}" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
-                                    <a href="/app/plan/details?planId=${plan.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
-                                    <a href="/app-edit-schedules.html" class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>
+                                    <a href="/app/plan/delete?planId=${plan.id}"
+                                       class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
+                                    <a href="/app/plan/details?planId=${plan.id}"
+                                       class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                                    <a href="/app/plan/edit?planId=${plan.id}"
+                                       class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>
                                 </td>
                             </tr>
                         </c:forEach>

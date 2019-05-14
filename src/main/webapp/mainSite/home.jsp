@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
 <%@ include file="/fragments/header.jsp" %>
 
 <section class="padding-large bg-light">
@@ -63,7 +62,7 @@
         </div>
         <div class="ml-4 align-self-center">
             <button class="btn btn-color rounded-0 mt-4 pl-4 pr-4">
-                <a href="index.html">Lorem ipsum</a>
+                <a href="/">Lorem ipsum</a>
             </button>
         </div>
     </div>
@@ -75,19 +74,22 @@
             <div class="col text-center">
                 <i class="fas fa-check icon-details"></i>
                 <h1>Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
+                    volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
                 </p>
             </div>
             <div class="col text-center pr-4 pl-4 mr-4 ml-4">
                 <i class="far fa-clock icon-details"></i>
                 <h1>Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
+                    volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
                 </p>
             </div>
             <div class="col text-center">
                 <i class="fas fa-list icon-details"></i>
                 <h1>Lorem ipsum dolor sit amet</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
+                    volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
                 </p>
             </div>
         </div>
@@ -107,7 +109,7 @@
                            aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="input-group-text btn-color border-0 rounded-0" type="submit" id="basic-addon2">
-                            <a href="index.html">Lorem</a>
+                            <a href="/">Lorem</a>
                         </button>
                     </div>
                 </div>
@@ -115,7 +117,6 @@
         </div>
     </div>
 </section>
-
 <section class="padding-medium story bg-light" id="about">
     <div class="container d-flex justify-content-center align-items-center">
         <div class="row">
@@ -123,7 +124,6 @@
                 <div class="div-img">
                 </div>
             </div>
-
             <div class="col-7 ml-4">
                 <h1 class="pb-1">Lorem ipsum dolor sit amet</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
@@ -137,7 +137,7 @@
 </section>
 
 <%@ include file="/fragments/footer.jsp" %>
-<%@ include file="/fragments/jsCode.jsp" %>
 
+<%@ include file="/fragments/jsCode.jsp" %>
 </body>
 </html>

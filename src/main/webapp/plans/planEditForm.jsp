@@ -6,7 +6,7 @@
 
 <head>
     <%@ include file="/fragments-after-logging/head.jsp" %>
-    <title>Add plan</title>
+    <title>Edit plan</title>
 </head>
 
 <body>
@@ -18,14 +18,14 @@
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
-                <form action="/app/plan/add" method="post">
+                <form action="/app/plan/edit?planId=${plan.id}" method="post">
                     <div class="row border-bottom border-3 p-1 m-1">
                         <div class="col noPadding">
                             <h4>${errorNotCompleteData}</h4>
-                            <h3 class="color-header text-uppercase">NOWY PLAN</h3>
+                            <h3 class="color-header text-uppercase">EDYTUJ PLAN</h3>
                         </div>
                         <div class="col d-flex justify-content-end mb-2 noPadding">
-                            <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz</button>
+                            <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Potwierdź</button>
                         </div>
                     </div>
                     <div class="schedules-content">
@@ -34,7 +34,8 @@
                                 Nazwa planu
                             </label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="planName" name="planName" placeholder="Nazwa planu">
+                                <input class="form-control" id="planName" name="planName" placeholder="Nazwa planu"
+                                       value="${plan.name}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -43,7 +44,7 @@
                             </label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="planDescription" name="planDescription"
-                                          placeholder="Opis plany"></textarea>
+                                          placeholder="Opis planu">${plan.description}</textarea>
                             </div>
                         </div>
                     </div>

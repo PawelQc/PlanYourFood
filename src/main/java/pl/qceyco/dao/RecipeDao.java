@@ -27,7 +27,6 @@ public class RecipeDao {
                      PreparedStatement.RETURN_GENERATED_KEYS)) {
             getRecipeData(recipe, statement);
             int result = statement.executeUpdate();
-
             if (result != 1) {
                 throw new RuntimeException("Execute updateRecipe returned " + result);
             }

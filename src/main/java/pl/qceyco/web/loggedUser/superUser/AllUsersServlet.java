@@ -1,8 +1,7 @@
-package pl.qceyco.web.loggedUser.plans;
+package pl.qceyco.web.loggedUser.superUser;
 
-import pl.qceyco.dao.PlanDao;
+import pl.qceyco.dao.AdminDao;
 import pl.qceyco.model.Admin;
-import pl.qceyco.model.Plan;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,17 +12,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/app/plan/list")
-public class PlansAllServlet extends HttpServlet {
+@WebServlet("/app/admin/all-users")
+public class AllUsersServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Admin loggedAdmin = (Admin) session.getAttribute("loggedAdmin");
+        boolean isUserSuperAdmin = loggedAdmin.isSuperAdmin();
+        if (isUserSuperAdmin == false) {
+            response.sendRedirect("/app/dashboard?noAccessAsSuperUser=true");
+            return;
+        }
         request.setAttribute("admin", loggedAdmin);
-        PlanDao planDao = new PlanDao();
-        List<Plan> planList = planDao.getAllPlansbyAdminId(loggedAdmin.getId());
-        request.setAttribute("plans", planList);
-        getServletContext().getRequestDispatcher("/plans/plansAll.jsp")
-                .forward(request, response);
+        AdminDao adminDao = new AdminDao();
+        List<Admin> admins = adminDao.getAllActiveAdmins();
+        request.setAttribute("admins", admins);
+        getServletContext().getRequestDispatcher("/superUser/usersAll.jsp").forward(request, response);
     }
 }

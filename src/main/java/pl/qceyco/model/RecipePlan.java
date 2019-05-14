@@ -15,10 +15,38 @@ public class RecipePlan {
     public RecipePlan() {
     }
 
+    public RecipePlan(DayName dayName, String mealName, Recipe recipe) {
+        this.dayName = dayName;
+        this.mealName = mealName;
+        this.recipe = recipe;
+    }
+
+    public RecipePlan(DayName dayName, String mealName, Recipe recipe, Plan plan) {
+        this.dayName = dayName;
+        this.mealName = mealName;
+        this.recipe = recipe;
+        this.plan = plan;
+    }
+
     public RecipePlan(Recipe recipe, String mealName, int displayOrder, DayName dayName, Plan plan) {
         this.recipe = recipe;
         this.mealName = mealName;
         this.displayOrder = displayOrder;
+        this.dayName = dayName;
+        this.plan = plan;
+    }
+
+    public RecipePlan(int id, Recipe recipe, String mealName, DayName dayName) {
+        this.id = id;
+        this.recipe = recipe;
+        this.mealName = mealName;
+        this.dayName = dayName;
+    }
+
+    public RecipePlan(int id, Recipe recipe, String mealName, DayName dayName, Plan plan) {
+        this.id = id;
+        this.recipe = recipe;
+        this.mealName = mealName;
         this.dayName = dayName;
         this.plan = plan;
     }
@@ -30,19 +58,6 @@ public class RecipePlan {
         this.displayOrder = displayOrder;
         this.dayName = dayName;
         this.plan = plan;
-    }
-
-    public RecipePlan(DayName dayName, String mealName, Recipe recipe, Plan plan) {
-        this.dayName = dayName;
-        this.mealName = mealName;
-        this.recipe = recipe;
-        this.plan = plan;
-    }
-
-    public RecipePlan(DayName dayName, String mealName, Recipe recipe) {
-        this.dayName = dayName;
-        this.mealName = mealName;
-        this.recipe = recipe;
     }
 
 

@@ -1,4 +1,4 @@
-package pl.qceyco.web.unloggedUser;
+package pl.qceyco.web.filter;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter("/app/*")
-public class Filter implements javax.servlet.Filter {
+public class LoginFilter implements javax.servlet.Filter {
     public void destroy() {
     }
 

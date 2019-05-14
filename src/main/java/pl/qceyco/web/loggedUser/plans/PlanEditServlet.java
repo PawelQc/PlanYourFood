@@ -13,14 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/app/plan/add")
-public class PlanAddServlet extends HttpServlet {
+@WebServlet("/app/plan/edit")
+public class PlanEditServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Admin loggedAdmin = (Admin) session.getAttribute("loggedAdmin");
         req.setAttribute("admin", loggedAdmin);
-        getServletContext().getRequestDispatcher("/plans/planAddForm.jsp").forward(req, resp);
+        String planId = req.getParameter("planId");
+        PlanDao planDao = new PlanDao();
+        Plan plan = planDao.getPlanById(Integer.parseInt(planId));
+        req.setAttribute("plan", plan);
+        getServletContext().getRequestDispatcher("/plans/planEditForm.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,11 +35,12 @@ public class PlanAddServlet extends HttpServlet {
             doGet(req, resp);
             return;
         }
-        HttpSession session = req.getSession();
-        Admin loggedAdmin = (Admin) session.getAttribute("loggedAdmin");
+        String planId = req.getParameter("planId");
         PlanDao planDao = new PlanDao();
-        planDao.createPlan(new Plan(name, description, loggedAdmin));
+        Plan plan = planDao.getPlanById(Integer.parseInt(planId));
+        plan.setName(name);
+        plan.setDescription(description);
+        planDao.updatePlan(plan);
         resp.sendRedirect("/app/plan/list");
     }
-
 }

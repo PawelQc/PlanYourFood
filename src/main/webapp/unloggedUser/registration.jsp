@@ -8,6 +8,7 @@
     <title>Registration</title>
     <%@ include file="/fragments/head.jsp" %>
 </head>
+
 <body>
 <%@ include file="/fragments/header.jsp" %>
 
@@ -17,6 +18,9 @@
             <div class="container w-25">
                 <form class="padding-small text-center" action="/register" method="post">
                     <h4>${errorNotCompleteData}</h4>
+                    <h4>${errorIncorrectPassword}</h4>
+                    <h4>${errorEmailAlreadyInDB}</h4>
+                    <h4>${errorIncorrectEmailFormat}</h4>
                     <h1 class="text-color-darker">Rejestracja</h1>
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" name="name" placeholder="podaj imię">
@@ -29,10 +33,11 @@
                         <input type="text" class="form-control" id="email" name="email" placeholder="podaj email">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="podaj hasło">
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="podaj hasło">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="repassword" name="password"
+                        <input type="password" class="form-control" id="repassword" name="repeatPassword"
                                placeholder="powtórz hasło">
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zarejestruj</button>

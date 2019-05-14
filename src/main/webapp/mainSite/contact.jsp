@@ -17,12 +17,13 @@
             <div class="container w-50 align-middle">
                 <h3 class="mb-4 padding-small">Skontaktuj się z nami!</h3>
                 <div class="form-group mb-3">
-                    <input type="email" class="form-control border border-secondary rounded mb-3" placeholder="Twój mail"
+                    <input type="email" class="form-control border border-secondary rounded mb-3"
+                           placeholder="Twój mail"
                            aria-label="Recipient's mail" aria-describedby="basic-addon2">
                     <textarea class="form-control border border-secondary mb-3" placeholder="Twoja wiadomość.."
                               aria-label="Recipient's message" aria-describedby="basic-addon2"></textarea>
-                        <button class="btn btn-color border-0 rounded mb-3 float-right" type="submit" id="basic-addon2"><a
-                                href="home.jsp">Lorem</a></button>
+                    <button class="btn btn-color border-0 rounded mb-3 float-right" type="submit" id="basic-addon2"><a
+                            href="/">Lorem</a></button>
                 </div>
                 <div class="container d-flex-row ">
                     <a href="#">
@@ -39,8 +40,6 @@
             </div>
         </div>
     </div>
-
-
 </section>
 
 <%@ include file="/fragments/jsCode.jsp" %>

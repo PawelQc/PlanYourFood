@@ -32,7 +32,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/app/super-admin-users">
+        <a class="nav-link" href="/app/admin/all-users">
             <span>Użytkownicy</span>
             <i class="fas fa-angle-right"></i>
         </a>

@@ -18,6 +18,7 @@ public class AdminDao {
     private static final String UPDATE_ADMIN = "UPDATE admins SET first_name=?, last_name=?, email=?, password=?, superadmin=?, enable=? WHERE id = ?;";
     private static final String DELETE_ADMIN = "DELETE FROM admins WHERE id = ?;";
     private static final String GET_ALL_ADMINS = "SELECT * FROM admins;";
+    private static final String GET_ALL_ACTIVE_ADMINS = "SELECT * FROM admins WHERE enable=1;";
     private static final String GET_ADMIN_BY_ID = "SELECT * FROM admins WHERE id = ?;";
 
 
@@ -42,15 +43,6 @@ public class AdminDao {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private void setAdminData(Admin admin, PreparedStatement statement) throws SQLException {
-        statement.setString(1, admin.getFirstName());
-        statement.setString(2, admin.getLastName());
-        statement.setString(3, admin.getEmail());
-        statement.setString(4, admin.getPassword());
-        statement.setInt(5, booleanToInt(admin.isSuperAdmin()));
-        statement.setInt(6, booleanToInt(admin.isEnabledLogging()));
     }
 
     public void updateAdmin(Admin admin) {
@@ -90,20 +82,26 @@ public class AdminDao {
         return admin;
     }
 
-    private void getAdminData(Admin admin, ResultSet resultSet) throws SQLException {
-        admin.setId(resultSet.getInt("id"));
-        admin.setFirstName(resultSet.getString("first_name"));
-        admin.setLastName(resultSet.getString("last_name"));
-        admin.setEmail(resultSet.getString("email"));
-        admin.setPasswordFromDB(resultSet.getString("password"));
-        admin.setIsSuperAdmin(intToBoolean(resultSet.getInt("superadmin")));
-        admin.setIsEnabledLogging(intToBoolean(resultSet.getInt("enable")));
-    }
-
     public List<Admin> getAllAdmins() {
         List<Admin> adminList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(GET_ALL_ADMINS);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                Admin admin = new Admin();
+                getAdminData(admin, resultSet);
+                adminList.add(admin);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return adminList;
+    }
+
+    public List<Admin> getAllActiveAdmins() {
+        List<Admin> adminList = new ArrayList<>();
+        try (Connection connection = DbUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(GET_ALL_ACTIVE_ADMINS);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Admin admin = new Admin();
@@ -152,6 +150,25 @@ public class AdminDao {
         } else {
             return false;
         }
+    }
+
+    private void setAdminData(Admin admin, PreparedStatement statement) throws SQLException {
+        statement.setString(1, admin.getFirstName());
+        statement.setString(2, admin.getLastName());
+        statement.setString(3, admin.getEmail());
+        statement.setString(4, admin.getPassword());
+        statement.setInt(5, booleanToInt(admin.isSuperAdmin()));
+        statement.setInt(6, booleanToInt(admin.isEnabledLogging()));
+    }
+
+    private void getAdminData(Admin admin, ResultSet resultSet) throws SQLException {
+        admin.setId(resultSet.getInt("id"));
+        admin.setFirstName(resultSet.getString("first_name"));
+        admin.setLastName(resultSet.getString("last_name"));
+        admin.setEmail(resultSet.getString("email"));
+        admin.setPasswordFromDB(resultSet.getString("password"));
+        admin.setIsSuperAdmin(intToBoolean(resultSet.getInt("superadmin")));
+        admin.setIsEnabledLogging(intToBoolean(resultSet.getInt("enable")));
     }
 }
 

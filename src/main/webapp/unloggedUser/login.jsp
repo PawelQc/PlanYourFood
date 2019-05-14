@@ -8,6 +8,7 @@
     <title>Login</title>
     <%@ include file="/fragments/head.jsp" %>
 </head>
+
 <body>
 <%@ include file="/fragments/header.jsp" %>
 
@@ -19,6 +20,7 @@
                     <h4>${errorNotCompleteData}</h4>
                     <h4>${errorInvalidLogging}</h4>
                     <h4>${successfulRegister}</h4>
+                    <h4>${errorBlockedUser}</h4>
                     <h1 class="text-color-darker">Logowanie</h1>
                     <div class="form-group">
                         <input type="text" class="form-control" id="email" name="email" placeholder="podaj adres email">
