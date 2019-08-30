@@ -7,11 +7,11 @@ For the purposes of presentation I have added several views of the application (
 
 #### Landing page
 
-<img src="sql/start.png">
+<img src="images/start.png">
 
 #### Registration
-<img src="sql/register.png">
+<img src="images/register.png">
 
 #### Login
-<img src="sql/login.png">
+<img src="images/login.png">
 
