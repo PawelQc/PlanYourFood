@@ -19,7 +19,7 @@ public class AllUsersServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Admin loggedAdmin = (Admin) session.getAttribute("loggedAdmin");
         boolean isUserSuperAdmin = loggedAdmin.isSuperAdmin();
-        if (isUserSuperAdmin == false) {
+        if (!isUserSuperAdmin) {
             response.sendRedirect("/app/dashboard?noAccessAsSuperUser=true");
             return;
         }
