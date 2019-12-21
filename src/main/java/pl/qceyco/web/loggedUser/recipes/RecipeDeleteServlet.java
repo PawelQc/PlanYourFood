@@ -29,7 +29,7 @@ public class RecipeDeleteServlet extends HttpServlet {
                 break;
             }
         }
-        if (isRecipeConnectedWithOtherRecordsInDB == true) {
+        if (isRecipeConnectedWithOtherRecordsInDB) {
             request.setAttribute("cannotDelete", "Przepis nie może zostać usunięty - usuń najpierw przepis z planu!");
             getServletContext().getRequestDispatcher("/app/recipe/list").forward(request, response);
             return;

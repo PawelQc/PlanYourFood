@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
         boolean regex = Pattern.matches("[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.([a-zA-Z]{2,}){1}", email);
-        if (regex == false) {
+        if (!regex) {
             request.setAttribute("errorIncorrectEmailFormat", "Nieprawidłowy email. Wprowadź poprawny zapis adresu email!");
             doGet(request, response);
             return;
@@ -47,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
                 break;
             }
         }
-        if (isEmailInDB == true) {
+        if (isEmailInDB) {
             request.setAttribute("errorEmailAlreadyInDB", "Podany adres email już został wcześniej zarejestrowany!");
             doGet(request, response);
             return;

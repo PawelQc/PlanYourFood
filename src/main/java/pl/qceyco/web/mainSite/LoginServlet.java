@@ -29,13 +29,13 @@ public class LoginServlet extends HttpServlet {
             doGet(request, response);
             return;
         }
-        if (admin.isEnabledLogging() == false) {
+        if (!admin.isEnabledLogging()) {
             request.setAttribute("errorBlockedUser", "Podany użytkownik został zablokowany przez administratora. Logowanie nie jest możliwe!");
             doGet(request, response);
             return;
         }
         boolean isLogged = dao.isPasswordCorrect(admin, password);
-        if (isLogged == true) {
+        if (isLogged) {
             HttpSession session = request.getSession();
             session.setAttribute("isLogged", "true");
             session.setAttribute("loggedAdmin", admin);
@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
         } else {
             request.setAttribute("errorInvalidLogging", "Podane hasło nie jest prawidłowe! Spróbuj ponownie.");
             doGet(request, response);
-            return;
         }
     }
 
